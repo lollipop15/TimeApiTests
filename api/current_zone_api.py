@@ -17,3 +17,12 @@ class CurrentZone:
         validate(instance=response.json(), schema=schema)
         logger.info(response.text)
         return response
+
+    def invalid_zone(self, zone):
+        """
+        https://timeapi.io/api/Time/current/zone?timeZone=
+        """
+        response = requests.get(f"{self.url}{zone}")
+        assert isinstance(response.json(), str)
+        logger.info(response.text)
+        return response

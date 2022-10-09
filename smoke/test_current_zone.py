@@ -44,7 +44,7 @@ class TestCurrentZone:
     @pytest.mark.parametrize("zone",
                              ["Europe/Amsterd", ""])
     def test_invalid_zone(self, zone):
-        response = requests.get("https://timeapi.io/api/Time/current/zone?timeZone=Europe/Amsterd")
+        response = CurrentZone(url=URL).invalid_zone(zone=zone)
         assert response.status_code == 400
-        assert response.json() == "Invalid Timezone"
+        assert response.json() in ["Invalid Timezone", "Missing Timezone"]
 
