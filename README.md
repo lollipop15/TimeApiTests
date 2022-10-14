@@ -4,4 +4,4 @@ Tests for https://timeapi.io/swagger/index.html
 
 To run tests:
 
-    pytest
+    pytest --alluredir=./allure-results
